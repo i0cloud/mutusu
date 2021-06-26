@@ -18,13 +18,16 @@ from django.urls import path, re_path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
-from blog.views import article_list, article_detail
+# from blog.views import article_list, article_detail
+from blog.views import IndexView, CategoryView, TagView, ArticleDetailView, SearchView
+
 
 urlpatterns = [
-    re_path('^$', article_list, name='index'),
-    re_path('^article/(?P<article_id>\d+).html$', article_detail, name='article-detail'),
-    re_path('^category/(?P<category_id>\d+)/$', article_list, name='category-list'),
-    re_path('^tag/(?P<tag_id>\d+)/$', article_list, name='tag-list'),
+    re_path('^$', IndexView.as_view(), name='index'),
+    re_path('^article/(?P<article_id>\d+).html$', ArticleDetailView.as_view(), name='article-detail'),
+    re_path('^category/(?P<category_id>\d+)/$', CategoryView.as_view(), name='category-list'),
+    re_path('^tag/(?P<tag_id>\d+)/$', TagView.as_view(), name='tag-list'),
+    re_path('^search/$', SearchView.as_view(), name='search'),
     path('admin/', admin.site.urls),
     re_path('meditor/', include('mdeditor.urls')),
 ]
