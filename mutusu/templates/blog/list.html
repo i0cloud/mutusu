@@ -1,0 +1,26 @@
+{% extends './base.html' %}
+
+{% block title %}
+  {% if tag %}
+  标签页：{{ tag.name }}
+  {% elif category %}
+  分类页：{{ category.name }}
+  {% else %}
+  首页
+  {% endif %}
+{% endblock title %}
+
+{% block main %}
+  <ul>
+  {% for article in article_list %}
+  <li>
+    <a href="/article/{{ article.id }}.html">{{ article.title }}</a>
+    <div>
+      <span>作者：{{ article.owner.username }}</span>
+      <span>分类：{{ article.category.name }}</span>
+    </div>
+    <p>{{ article.desc }}</p>
+  </li>
+  {% endfor %}
+  </ul>
+{% endblock main %}
