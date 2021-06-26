@@ -55,7 +55,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'mutusu.urls'
 
-THEME = 'default'
+THEME = 'bootstrap'
 
 TEMPLATES = [
     {

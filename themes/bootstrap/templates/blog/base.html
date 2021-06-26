@@ -1,0 +1,50 @@
+<!DOCTYPE>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock title %} | MUTUSU</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    .article {
+        margin-bottom: 5px;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="container head">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">首页</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+          {% for cate in allcatetories %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'category-list' cate.id %}">{{ cate.name }}</a>
+            </li>
+          {% endfor %}
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">搜索</button>
+          </form>
+        </div>
+      </nav>
+      {% block jumbotron %}
+      {% endblock jumbotron %}
+    </div>
+    <div class="container main">
+      <div class="row">
+        <div class="col-12 article-list">
+        {% block main %}{% endblock main %}
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container power" align="center">
+        <hr/>
+        <span class="text-muted">Power by Vinson@mutusu.com</span>
+      </div>
+    </footer>
+  </body>
+</html>
