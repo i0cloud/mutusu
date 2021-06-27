@@ -18,7 +18,6 @@ from django.urls import path, re_path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
-# from blog.views import article_list, article_detail
 from blog.views import IndexView, CategoryView, TagView, ArticleDetailView, SearchView
 
 

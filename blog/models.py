@@ -35,6 +35,8 @@ class Article(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name="分类")
     tag = models.ManyToManyField(Tag, verbose_name='标签')
     created_time = models.DateTimeField('创建时间', auto_now_add=True)
+    pv = models.PositiveIntegerField(default=1)    # 页面访问量，即PageView
+    uv = models.PositiveIntegerField(default=1)    # 独立访问用户数，即UniqueVisitor
     
     @staticmethod
     def get_by_tag(tag_id):
