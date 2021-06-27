@@ -46,3 +46,16 @@
     {% endif %}
   {% endif %}
 {% endblock main %}
+
+{% block sidebar %}
+  <div class="card sidebar">
+    <div class="card-header">
+      热门文章
+    </div>
+    <div class="card-body">
+  {% for hot_article in hot_articles %}
+    <h5 class="card-title"><a href="{% url 'article-detail' hot_article.id %}">{{ hot_article.title }}</a></h5>
+  {% endfor %}
+    </div>
+  </div>
+{% endblock sidebar %}

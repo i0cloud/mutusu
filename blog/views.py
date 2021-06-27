@@ -23,6 +23,12 @@ class IndexView(CommonViewMixin, ListView):
     context_object_name = 'article_list'
     template_name = 'blog/list.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["hot_articles"] = Article.objects.all().order_by('-pv')[0:5]
+        return context
+    
+
 
 class CategoryView(IndexView):
     def get_context_data(self, **kwargs):

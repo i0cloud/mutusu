@@ -35,8 +35,11 @@
     </div>
     <div class="container main">
       <div class="row">
-        <div class="col-12 article-list">
+        <div class="col-9 article-list">
         {% block main %}{% endblock main %}
+        </div>
+        <div class="col-3">
+        {% block sidebar %}{% endblock sidebar %}
         </div>
       </div>
     </div>
