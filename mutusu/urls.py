@@ -28,7 +28,7 @@ urlpatterns = [
     re_path('^tag/(?P<tag_id>\d+)/$', TagView.as_view(), name='tag-list'),
     re_path('^search/$', SearchView.as_view(), name='search'),
     path('admin/', admin.site.urls),
-    re_path('meditor/', include('mdeditor.urls')),
+    re_path('mdeditor/', include('mdeditor.urls')),
 ]
 
 if settings.DEBUG:
