@@ -13,6 +13,7 @@ class CommonViewMixin:
         context = super().get_context_data(**kwargs)
         context.update({
             'allcatetories': Category.objects.all(),
+            'alltags': Tag.objects.all(),
         })
         return context
 

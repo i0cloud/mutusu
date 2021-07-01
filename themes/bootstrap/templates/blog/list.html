@@ -53,9 +53,19 @@
       热门文章
     </div>
     <div class="card-body">
-  {% for hot_article in hot_articles %}
-    <h5 class="card-title"><a href="{% url 'article-detail' hot_article.id %}">{{ hot_article.title }}</a></h5>
-  {% endfor %}
+      {% for hot_article in hot_articles %}
+        <h5 class="card-title"><a href="{% url 'article-detail' hot_article.id %}">{{ hot_article.title }}</a></h5>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="card sidebar">
+    <div class="card-header">
+      标签列表
+    </div>
+    <div class="card-body">
+      {% for tag in alltags %}
+        <button type="button" class="btn"><a href="{% url 'tag-list' tag.id %}">{{ tag.name }}</a></button>
+      {% endfor %}
     </div>
   </div>
 {% endblock sidebar %}
