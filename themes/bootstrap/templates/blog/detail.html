@@ -29,3 +29,14 @@
     </div>
   </div>
 {% endblock main %}
+
+{% block sidebar %}
+  <div class="card sidebar">
+    <div class="card-header">
+      文章目录
+    </div>
+    <div class="card-body">
+      {{ article.toc|safe }}
+    </div>
+  </div>
+{% endblock sidebar %}

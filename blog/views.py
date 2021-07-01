@@ -86,12 +86,13 @@ class ArticleDetailView(CommonViewMixin, DetailView):
     def get_object(self, queryset=None):
         # 覆写 get_object 方法的目的是因为需要对 article 的 content 值进行渲染
         article = super(ArticleDetailView, self).get_object(queryset=None)
-        article.content = markdown.markdown(article.content,
-                                      extensions=[
-                                          'markdown.extensions.extra',
-                                          'markdown.extensions.codehilite',
-                                          'markdown.extensions.toc',
-                                      ])
+        md = markdown.Markdown(extensions=[
+                              'markdown.extensions.extra',
+                              'markdown.extensions.codehilite',
+                              'markdown.extensions.toc',
+                              ])
+        article.content = md.convert(article.content)
+        article.toc = md.toc
         return article
     
     def get(self, request, *args, **kwargs):
